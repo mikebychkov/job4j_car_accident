@@ -12,7 +12,7 @@ import com.accident.config.WebConfig;
 
 public class WebInit implements WebApplicationInitializer {
 
-    private static final Logger logger = LogManager.getLogger(WebApplicationInitializer.class);
+    private static final Logger logger = LogManager.getLogger(WebInit.class);
 
     public void onStartup(ServletContext servletCxt) {
         AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();

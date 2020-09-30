@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class IndexControl {
 
@@ -13,6 +16,8 @@ public class IndexControl {
 
     @GetMapping("/")
     public String index(Model model) {
+        List<String> list = List.of("Hello", "Spring", "Framework");
+        model.addAttribute("list", list);
         return "index";
     }
 }
