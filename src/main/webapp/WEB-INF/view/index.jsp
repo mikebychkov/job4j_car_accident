@@ -12,15 +12,24 @@
 <body>
 
 <div class="container">
+    <h2>Accidents list</h2>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Item</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Text</th>
+                <th>Address</th>
             </tr>
         </thead>
         <tbody>
             <c:forEach var="it" items="${list}" >
-                <tr><td><c:out value="${it}"/></td></tr>
+                <tr>
+                    <td><c:out value="${it.id}"/></td>
+                    <td><c:out value="${it.name}"/></td>
+                    <td><c:out value="${it.text}"/></td>
+                    <td><c:out value="${it.address}"/></td>
+                </tr>
             </c:forEach>
         </tbody>
     </table>
