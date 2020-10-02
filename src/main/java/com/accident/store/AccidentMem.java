@@ -2,6 +2,7 @@ package com.accident.store;
 
 import com.accident.model.Accident;
 import com.accident.model.AccidentType;
+import com.accident.model.Rule;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -42,5 +43,13 @@ public class AccidentMem {
         types.put(2, AccidentType.of(2, "Машина и человек"));
         types.put(3, AccidentType.of(3, "Машина и велосипед"));
         return types;
+    }
+
+    public Map<Integer, Rule> getAccidentRules() {
+        Map<Integer, Rule> rules = new HashMap<>();
+        rules.put(1, Rule.of(1, "Статья. 1"));
+        rules.put(2, Rule.of(2, "Статья. 2"));
+        rules.put(3, Rule.of(3, "Статья. 3"));
+        return rules;
     }
 }
