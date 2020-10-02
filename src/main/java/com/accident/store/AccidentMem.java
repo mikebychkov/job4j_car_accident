@@ -34,10 +34,4 @@ public class AccidentMem {
     public Map<Integer, Accident> getData() {
         return data;
     }
-
-    public void create(Accident accident) {
-        Random rnd = new Random();
-        accident.setId(rnd.nextInt());
-        data.put(accident.getId(), accident);
-    }
 }

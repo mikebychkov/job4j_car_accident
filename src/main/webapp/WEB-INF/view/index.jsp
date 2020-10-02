@@ -13,10 +13,11 @@
 
 <div class="container">
     <h2>Accidents list</h2>
-    <a href="<c:url value='/create'/>">Добавить инцидент</a>
+    <a href="<c:url value='/create'/>">Add accident</a>
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th>Edit</th>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Text</th>
@@ -26,6 +27,7 @@
         <tbody>
             <c:forEach var="it" items="${list}" >
                 <tr>
+                    <td><a href="<c:url value='/update?id=${it.id}'/>">Edit</a></td>
                     <td><c:out value="${it.id}"/></td>
                     <td><c:out value="${it.name}"/></td>
                     <td><c:out value="${it.text}"/></td>
