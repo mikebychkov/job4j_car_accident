@@ -22,6 +22,7 @@
                 <th>Name</th>
                 <th>Text</th>
                 <th>Address</th>
+                <th>Type</th>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +33,7 @@
                     <td><c:out value="${it.name}"/></td>
                     <td><c:out value="${it.text}"/></td>
                     <td><c:out value="${it.address}"/></td>
+                    <td><c:out value="${it.type.name}"/></td>
                 </tr>
             </c:forEach>
         </tbody>

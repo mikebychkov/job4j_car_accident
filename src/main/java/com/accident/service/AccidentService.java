@@ -1,6 +1,7 @@
 package com.accident.service;
 
 import com.accident.model.Accident;
+import com.accident.model.AccidentType;
 import com.accident.store.AccidentMem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,13 @@ public class AccidentService {
 
     public Accident findById(int id) {
         return store.getData().get(id);
+    }
+
+    public List<AccidentType> getAccidentTypes() {
+        return new ArrayList<>(store.getAccidentTypes().values());
+    }
+
+    public AccidentType findTypeById(int id) {
+        return store.getAccidentTypes().get(id);
     }
 }

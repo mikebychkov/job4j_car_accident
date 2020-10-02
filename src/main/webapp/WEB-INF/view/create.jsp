@@ -34,11 +34,24 @@
                 <input type="text" class="form-control" id="address" placeholder="Address" name="address">
             </div>
         </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="type.id">Type:</label>
+            <div class="col-sm-10">
+                <select name="type.id" id="type.id" class="form-control">
+                    <c:forEach var="type" items="${types}" >
+                        <option value="${type.id}">${type.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default">Save</button>
             </div>
         </div>
+
     </form>
 </div>
 

@@ -8,6 +8,8 @@ public class Accident {
     private String text;
     private String address;
 
+    private AccidentType type;
+
     public int getId() {
         return id;
     }
@@ -38,6 +40,14 @@ public class Accident {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public AccidentType getType() {
+        return type;
+    }
+
+    public void setType(AccidentType type) {
+        this.type = type;
     }
 
     @Override

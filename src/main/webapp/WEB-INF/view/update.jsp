@@ -34,6 +34,19 @@
                 <input type="text" class="form-control" id="address" placeholder="Address" name="address" value="${accident.address}">
             </div>
         </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="type.id">Type:</label>
+            <div class="col-sm-10">
+                <select name="type.id" id="type.id" class="form-control">
+                    <c:forEach var="type" items="${types}" >
+                    <option value="${type.id}" <c:if test='${type.id == accident.type.id}'> selected="selected" </c:if>
+                        >${type.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default">Save</button>
