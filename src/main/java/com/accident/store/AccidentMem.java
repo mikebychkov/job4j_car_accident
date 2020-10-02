@@ -3,15 +3,16 @@ package com.accident.store;
 import com.accident.model.Accident;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 public class AccidentMem {
 
     private Map<Integer, Accident> data = new HashMap<>();
+
+    public AccidentMem() {
+        init();
+    }
 
     public void init() {
         Accident ac1 = new Accident();
@@ -34,7 +35,9 @@ public class AccidentMem {
         return data;
     }
 
-    public List<Accident> getDataList() {
-        return new ArrayList<>(data.values());
+    public void create(Accident accident) {
+        Random rnd = new Random();
+        accident.setId(rnd.nextInt());
+        data.put(accident.getId(), accident);
     }
 }

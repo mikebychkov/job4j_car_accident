@@ -13,6 +13,7 @@
 
 <div class="container">
     <h2>Accidents list</h2>
+    <a href="<c:url value='/create'/>">Добавить инцидент</a>
     <table class="table table-bordered">
         <thead>
             <tr>
