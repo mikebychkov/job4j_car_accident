@@ -11,12 +11,20 @@ import java.util.*;
 public class AccidentMem {
 
     private Map<Integer, Accident> data = new HashMap<>();
+    private Map<Integer, AccidentType> types = new HashMap<>();
+    private Map<Integer, Rule> rules = new HashMap<>();
 
     public AccidentMem() {
         init();
     }
 
     public void init() {
+        initData();
+        initTypes();
+        initRules();
+    }
+
+    private void initData() {
         Accident ac1 = new Accident();
         ac1.setId(1);
         ac1.setName("Accident #1");
@@ -33,8 +41,28 @@ public class AccidentMem {
         data.put(2, ac2);
     }
 
+    private void initTypes() {
+        types.put(1, AccidentType.of(1, "Две машины"));
+        types.put(2, AccidentType.of(2, "Машина и человек"));
+        types.put(3, AccidentType.of(3, "Машина и велосипед"));
+    }
+
+    private void initRules() {
+        rules.put(1, Rule.of(1, "Статья. 1"));
+        rules.put(2, Rule.of(2, "Статья. 2"));
+        rules.put(3, Rule.of(3, "Статья. 3"));
+    }
+
     public void save(Accident accident) {
         data.put(accident.getId(), accident);
+    }
+
+    public void save(AccidentType accidentType) {
+        types.put(accidentType.getId(), accidentType);
+    }
+
+    public void save(Rule rule) {
+        rules.put(rule.getId(), rule);
     }
 
     public Accident findById(int id) {
@@ -50,34 +78,26 @@ public class AccidentMem {
     }
 
     public Map<Integer, AccidentType> getAccidentTypes() {
-        Map<Integer, AccidentType> types = new HashMap<>();
-        types.put(1, AccidentType.of(1, "Две машины"));
-        types.put(2, AccidentType.of(2, "Машина и человек"));
-        types.put(3, AccidentType.of(3, "Машина и велосипед"));
         return types;
     }
 
     public List<AccidentType> getAccidentTypeList() {
-        return new ArrayList<>(getAccidentTypes().values());
+        return new ArrayList<>(types.values());
     }
 
     public AccidentType findTypeById(int id) {
-        return getAccidentTypes().get(id);
+        return types.get(id);
     }
 
     public Map<Integer, Rule> getAccidentRules() {
-        Map<Integer, Rule> rules = new HashMap<>();
-        rules.put(1, Rule.of(1, "Статья. 1"));
-        rules.put(2, Rule.of(2, "Статья. 2"));
-        rules.put(3, Rule.of(3, "Статья. 3"));
         return rules;
     }
 
     public List<Rule> getAccidentRuleList() {
-        return new ArrayList<>(getAccidentRules().values());
+        return new ArrayList<>(rules.values());
     }
 
     public Rule findRuleById(int id) {
-        return getAccidentRules().get(id);
+        return rules.get(id);
     }
 }
