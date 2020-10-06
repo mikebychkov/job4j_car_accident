@@ -33,8 +33,20 @@ public class AccidentMem {
         data.put(2, ac2);
     }
 
+    public void save(Accident accident) {
+        data.put(accident.getId(), accident);
+    }
+
+    public Accident findById(int id) {
+        return data.get(id);
+    }
+
     public Map<Integer, Accident> getData() {
         return data;
+    }
+
+    public List<Accident> getDataList() {
+        return new ArrayList<>(getData().values());
     }
 
     public Map<Integer, AccidentType> getAccidentTypes() {
@@ -45,11 +57,27 @@ public class AccidentMem {
         return types;
     }
 
+    public List<AccidentType> getAccidentTypeList() {
+        return new ArrayList<>(getAccidentTypes().values());
+    }
+
+    public AccidentType findTypeById(int id) {
+        return getAccidentTypes().get(id);
+    }
+
     public Map<Integer, Rule> getAccidentRules() {
         Map<Integer, Rule> rules = new HashMap<>();
         rules.put(1, Rule.of(1, "Статья. 1"));
         rules.put(2, Rule.of(2, "Статья. 2"));
         rules.put(3, Rule.of(3, "Статья. 3"));
         return rules;
+    }
+
+    public List<Rule> getAccidentRuleList() {
+        return new ArrayList<>(getAccidentRules().values());
+    }
+
+    public Rule findRuleById(int id) {
+        return getAccidentRules().get(id);
     }
 }
