@@ -1,6 +1,7 @@
 package com.accident.control;
 
 import com.accident.service.AccidentService;
+import com.accident.service.AccidentServiceJdbc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +16,10 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class AccidentControl {
 
-    private AccidentService service;
+    private AccidentServiceJdbc service;
 
     @Autowired
-    public AccidentControl(AccidentService service) {
+    public AccidentControl(AccidentServiceJdbc service) {
         this.service = service;
     }
 

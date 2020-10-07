@@ -48,6 +48,13 @@ public class Accident {
         return type;
     }
 
+    public Integer getTypeId() {
+        if (type == null) {
+            return null;
+        }
+        return type.getId();
+    }
+
     public void setType(AccidentType type) {
         this.type = type;
     }
