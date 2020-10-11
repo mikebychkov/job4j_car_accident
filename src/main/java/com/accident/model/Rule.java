@@ -1,17 +1,28 @@
 package com.accident.model;
 
-import java.util.Objects;
+import javax.persistence.*;
+import java.util.*;
 
+@Entity
+@Table(name = "rule")
 public class Rule {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+
+    @ManyToMany(mappedBy = "rules")
+    private Set<Accident> accidents = new HashSet<>();
 
     public static Rule of(int id, String name) {
         Rule rule = new Rule();
         rule.id = id;
         rule.name = name;
         return rule;
+    }
+
+    public Rule() {
     }
 
     public int getId() {

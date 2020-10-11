@@ -2,6 +2,7 @@ package com.accident.control;
 
 import com.accident.model.Accident;
 import com.accident.service.AccidentService;
+import com.accident.service.AccidentServiceHbm;
 import com.accident.service.AccidentServiceJdbc;
 import com.accident.store.AccidentMem;
 import org.apache.logging.log4j.LogManager;
@@ -18,10 +19,10 @@ public class IndexControl {
 
     private static final Logger logger = LogManager.getLogger(IndexControl.class);
 
-    private AccidentServiceJdbc service;
+    private AccidentServiceHbm service;
 
     @Autowired
-    public IndexControl(AccidentServiceJdbc service) {
+    public IndexControl(AccidentServiceHbm service) {
         this.service = service;
     }
 

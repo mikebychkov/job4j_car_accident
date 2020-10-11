@@ -13,6 +13,7 @@ import javax.servlet.ServletRegistration;
 
 import com.accident.config.WebConfig;
 import com.accident.config.JdbcConfig;
+import com.accident.config.HbmConfig;
 
 public class WebInit implements WebApplicationInitializer {
 
@@ -20,7 +21,8 @@ public class WebInit implements WebApplicationInitializer {
 
     public void onStartup(ServletContext servletCxt) {
         AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
-        ac.register(WebConfig.class, JdbcConfig.class);
+        //ac.register(WebConfig.class, JdbcConfig.class);
+        ac.register(WebConfig.class, HbmConfig.class);
         ac.refresh();
 
         CharacterEncodingFilter filter = new CharacterEncodingFilter();

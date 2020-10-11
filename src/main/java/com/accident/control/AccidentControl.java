@@ -1,7 +1,11 @@
 package com.accident.control;
 
+import com.accident.config.WebConfig;
 import com.accident.service.AccidentService;
+import com.accident.service.AccidentServiceHbm;
 import com.accident.service.AccidentServiceJdbc;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +20,12 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class AccidentControl {
 
-    private AccidentServiceJdbc service;
+    private static final Logger logger = LogManager.getLogger(AccidentControl.class);
+
+    private AccidentServiceHbm service;
 
     @Autowired
-    public AccidentControl(AccidentServiceJdbc service) {
+    public AccidentControl(AccidentServiceHbm service) {
         this.service = service;
     }
 
@@ -34,6 +40,7 @@ public class AccidentControl {
     public String update(@RequestParam("id") int id, Model model) {
         model.addAttribute("accident", service.findById(id));
         model.addAttribute("types", service.getAccidentTypes());
+        model.addAttribute("rules", service.getAccidentRules());
         return "update";
     }
 

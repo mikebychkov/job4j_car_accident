@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Create accident</title>
+    <title>Edit accident</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -14,7 +14,7 @@
 <body>
 
 <div class="container">
-    <h2>Create accident</h2>
+    <h2>Edit accident</h2>
     <form class="form-horizontal" action="<c:url value='/save?id=${accident.id}'/>" method='POST'>
         <div class="form-group">
             <label class="control-label col-sm-2" for="name">Name:</label>
@@ -42,6 +42,17 @@
                     <c:forEach var="type" items="${types}" >
                     <option value="${type.id}" <c:if test='${type.id == accident.type.id}'> selected="selected" </c:if>
                         >${type.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="rIds">Rules:</label>
+            <div class="col-sm-10">
+                <select name="rIds" id="rIds" multiple class="form-control">
+                    <c:forEach var="rule" items="${rules}" >
+                        <option value="${rule.id}">${rule.name}</option>
                     </c:forEach>
                 </select>
             </div>
