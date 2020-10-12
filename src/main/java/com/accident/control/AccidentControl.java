@@ -4,6 +4,7 @@ import com.accident.config.WebConfig;
 import com.accident.service.AccidentService;
 import com.accident.service.AccidentServiceHbm;
 import com.accident.service.AccidentServiceJdbc;
+import com.accident.service.AccidentServiceJpa;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,10 @@ public class AccidentControl {
 
     private static final Logger logger = LogManager.getLogger(AccidentControl.class);
 
-    private AccidentServiceHbm service;
+    private AccidentServiceJpa service;
 
     @Autowired
-    public AccidentControl(AccidentServiceHbm service) {
+    public AccidentControl(AccidentServiceJpa service) {
         this.service = service;
     }
 

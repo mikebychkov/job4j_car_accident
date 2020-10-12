@@ -8,7 +8,7 @@ import java.util.*;
 public class Rule {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
 
@@ -39,6 +39,14 @@ public class Rule {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Accident> getAccidents() {
+        return accidents;
+    }
+
+    public void setAccidents(Set<Accident> accidents) {
+        this.accidents = accidents;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.accident;
 
+import com.accident.config.DataConfig;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.springframework.web.WebApplicationInitializer;
@@ -21,8 +22,7 @@ public class WebInit implements WebApplicationInitializer {
 
     public void onStartup(ServletContext servletCxt) {
         AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
-        //ac.register(WebConfig.class, JdbcConfig.class);
-        ac.register(WebConfig.class, HbmConfig.class);
+        ac.register(WebConfig.class, DataConfig.class);
         ac.refresh();
 
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
