@@ -11,6 +11,10 @@
 </head>
 <body>
 
+<div>
+    Login as : ${user.username}
+</div>
+
 <div class="container">
     <h2>Accidents list</h2>
     <a href="<c:url value='/create'/>">Add accident</a>

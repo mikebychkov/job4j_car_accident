@@ -9,11 +9,10 @@ import com.accident.store.AccidentMem;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
 
 @Controller
 public class IndexControl {
@@ -29,8 +28,8 @@ public class IndexControl {
 
     @GetMapping("/")
     public String index(Model model) {
-        List<Accident> list = service.getDataList();
-        model.addAttribute("list", list);
+        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        model.addAttribute("list", service.getDataList());
         return "index";
     }
 }
